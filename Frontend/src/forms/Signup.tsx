@@ -1,8 +1,10 @@
 import { useState } from "react";
 
 export default function Signup() {
-  const [pressed, setPressed] = useState(false);
-  
+  const [email, setEmail] = useState("");
+  const [pwd, setPwd] = useState("");
+  const [cont, setCont] = useState(false);
+
   return (
     <>
       <div className="relative top-0 left-0 flex justify-center items-center max-h-screen md:h-screen font-inter text-center">
@@ -21,21 +23,33 @@ export default function Signup() {
                 type="email"
                 placeholder="example@example.com"
                 name="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 className="p-1 m-0 rounded-md border-black shadow-md"
               />
-              {pressed && <input
-                type="password"
-                placeholder="Password"
-                name="pwd"
-                className="p-1 m-0 rounded-md border-black shadow-md"
-              />}
-              <button
-                type="button"
-                className="btn-dark text-base"
-                onClick={() => setPressed(true)}
-              >
-                {pressed ? "Sign Up" : "Continue"}
-              </button>
+              {cont && email.length > 0 && (
+                <input
+                  type="password"
+                  placeholder="Password"
+                  name="pwd"
+                  value={pwd}
+                  onChange={(e) => setPwd(e.target.value)}
+                  className="p-1 m-0 rounded-md border-black shadow-md"
+                />
+              )}
+              {cont ? (
+                <button type="submit" className={`btn-dark text-base ${cont ? '' : 'hidden'}`}>
+                  Sign Up with email
+                </button>
+              ) : (
+                <button
+                  type="button"
+                  className=" peer btn-dark text-base"
+                  onClick={(e) => {e.preventDefault(); setCont(true)}}
+                >
+                  Continue
+                </button>
+              )}
               <div className="flex flex-row justify-center items-center">
                 <div className="border border-cxgrey w-1/3"></div>
                 <p className="text-ctgrey text-center mx-1 w-1/2">
@@ -53,7 +67,7 @@ export default function Signup() {
           </section>
           <section>
             <p className="text-center text-ctgrey mt-4">
-              By clicking continue, you agree to our 
+              By clicking continue, you agree to our
               <span className="text-black ml-1">Terms of Service</span> and
               <span className="text-black ml-1">Privacy Policy </span>
             </p>

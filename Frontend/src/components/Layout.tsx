@@ -11,7 +11,7 @@ function Layout() {
             <li>Features</li>
             <li>Challenges</li>
           </ul>
-          <button className="btn-dark">Sign up</button>
+          <button className="btn-dark">Log In</button>
         </nav>
       </header>
       <main>
