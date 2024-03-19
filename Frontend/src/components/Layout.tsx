@@ -2,31 +2,22 @@ import { Outlet } from "react-router-dom";
 
 function Layout() {
   return (
-    <>
-      <header>
-        <nav className="flex-1 items-center justify-center">
-          <h1 className="inline ">DOL-E</h1>
-          <ul className="flex-1">
-            <li className="inline">Features</li>
-            <li className="inline">Community</li>
-            <li className="inline">Challenges</li>
-            <li className="inline">Subscriptions</li>
+    <div className="container mx-auto font-inter">
+      <header className="flex flex-col justify-between text-center md:flex-row p-2">
+        <h1 className="text-2xl font-semibold mb-2 ">DOL-E</h1>
+        <nav className="flex flex-col justify-between items-center gap-4 md:flex-row">
+          <ul className="flex flex-col flex-nowrap gap-4 md:flex-row">
+            <li>Pricing</li>
+            <li>Features</li>
+            <li>Challenges</li>
           </ul>
+          <button className="bg-black text-white text-xs rounded-md p-2 m-0">Sign up</button>
         </nav>
       </header>
       <main>
         <Outlet />
       </main>
-      <footer>
-        <section>
-          <h2>DOL-E</h2>
-          <p>DOL-E protects your privacy</p>
-          <ul>
-            <li></li>
-          </ul>
-        </section>
-      </footer>
-    </>
+    </div>
   );
 }
 
