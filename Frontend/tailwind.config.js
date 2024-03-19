@@ -4,6 +4,7 @@ export default {
   theme: {
     extend: {
       colors: {
+        buttonPrimary: "000000",
         cgrey: "#EEEEEE",
         ctgrey: "#828282",
         cxgrey: "#e6e6e6"
@@ -13,5 +14,7 @@ export default {
       },
     },
   },
-  plugins: [],
+  plugins: [
+
+  ],
 };

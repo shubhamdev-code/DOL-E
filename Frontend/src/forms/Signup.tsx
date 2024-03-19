@@ -21,7 +21,7 @@ export default function Signup() {
               />
               <button
                 type="submit"
-                className="bg-black text-white rounded-md p-1 m-0"
+                className="btn-dark text-base"
               >
                 Sign up with email
               </button>
