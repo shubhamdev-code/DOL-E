@@ -1,8 +1,12 @@
+import { useState } from "react";
+
 export default function Signup() {
+  const [pressed, setPressed] = useState(false);
+  
   return (
     <>
-      <div className="flex justify-center items-center h-[600px] md:h-screen font-inter text-center">
-        <div className="flex flex-col justify-center w-96 h-96 p-4 m-4">
+      <div className="relative top-0 left-0 flex justify-center items-center max-h-screen md:h-screen font-inter text-center">
+        <div className="flex flex-col justify-center max-w-full md:max-w-[60%] lg:max-w-[60%] p-4 m-4">
           <section>
             <h1 className="text-2xl font-semibold">Create an account</h1>
             <p>Enter your email to signup for this</p>
@@ -19,11 +23,18 @@ export default function Signup() {
                 name="email"
                 className="p-1 m-0 rounded-md border-black shadow-md"
               />
+              {pressed && <input
+                type="password"
+                placeholder="Password"
+                name="pwd"
+                className="p-1 m-0 rounded-md border-black shadow-md"
+              />}
               <button
-                type="submit"
+                type="button"
                 className="btn-dark text-base"
+                onClick={() => setPressed(true)}
               >
-                Sign up with email
+                {pressed ? "Sign Up" : "Continue"}
               </button>
               <div className="flex flex-row justify-center items-center">
                 <div className="border border-cxgrey w-1/3"></div>
