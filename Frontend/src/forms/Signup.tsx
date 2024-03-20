@@ -1,9 +1,21 @@
 import { useState } from "react";
+import axios from 'axios'
 
 export default function Signup() {
   const [email, setEmail] = useState("");
   const [pwd, setPwd] = useState("");
   const [cont, setCont] = useState(false);
+
+  const handleSubmit = (e) => {
+      e.preventDefault();
+      axios.post('http://localhost:3000/register', {email, pwd}).then((res) => {
+        console.log(res.data)
+      }).catch((err) => {
+        console.log('Error');
+        console.log(err)
+      });
+    };
+
 
   return (
     <>
@@ -14,10 +26,9 @@ export default function Signup() {
             <p>Enter your email to signup for this</p>
           </section>
           <section>
-            <form
-              action="#"
-              method="post"
-              className="flex flex-col space-y-3 mt-4"
+            <form 
+              onSubmit={handleSubmit} 
+              className="flex flex-col gap-4"
             >
               <input
                 type="email"
