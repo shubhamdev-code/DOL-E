@@ -1,3 +1,5 @@
+require('./config/dotenvConfig');
+
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
@@ -8,7 +10,10 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
-mongoose.connect("mongodb+srv://shubhamkrs:L91j5ypHpXzFDni5@users.vpncai5.mongodb.net/?retryWrites=true&w=majority&appName=users");
+const PORT = process.env.PORT || 3000; 
+const MONGO_URI = process.env.MONGO_URI;
+console.log("MONGO_URI:", MONGO_URI);
+mongoose.connect(MONGO_URI);
 
 app.post("/login", async (req, res) => {
     const { email, pwd } = req.body;
@@ -53,6 +58,6 @@ app.post("/register", async (req, res) => {
     }
 });
 
-app.listen(3000, () => {
+app.listen(PORT, () => {
     console.log("Server is running on port 3000");
 });
