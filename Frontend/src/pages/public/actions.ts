@@ -1,6 +1,6 @@
 import { json, redirect } from "react-router-dom";
 
-export function loginAction() {
+export async function loginAction() {
   return json({ message: "Hello World" }, { status: 200, statusText: "OK" });
 }
 

@@ -32,12 +32,40 @@ export default function Layout() {
       <main className="">
         <Outlet />
       </main>
-      <footer>
-        <section>
-          <h2>DOL-E</h2>
+      <footer className="my-8 columns-4 divide-x-2">
+        <section className="p-2">
+          <h2 className="text-2xl font-semibold">DOL-E</h2>
           <p>DOL-E protects your privacy</p>
           <ul>
             <li></li>
+          </ul>
+        </section>
+        <section className="p-2">
+          <h2 className="text-lg font-semibold">Company</h2>
+          <ul>
+            <li>
+              <Link to="about">About</Link>
+            </li>
+            <li>
+              <Link to="contact">Contact</Link>
+            </li>
+          </ul>
+        </section>
+        <section className="p-2">
+          <h2 className="text-lg font-semibold">Plans</h2>
+          <ul>
+            <li>
+              <Link to="about">For individuals</Link>
+            </li>
+            <li>
+              <Link to="contact">For Students</Link>
+            </li>
+            <li>
+              <Link to="contact">For Teams</Link>
+            </li>
+            <li>
+              <Link to="contact"></Link>
+            </li>
           </ul>
         </section>
       </footer>

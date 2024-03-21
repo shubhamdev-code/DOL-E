@@ -1,29 +1,39 @@
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 
-import Layout from "./pages/landing/Layout";
-import Home from "./pages/landing/Home";
-import Login from "./pages/landing/Login";
-import Signup from "./pages/landing/Signup";
-import { signupAction, loginAction } from "./pages/landing/actions";
+import ErrorBoundary from "./components/ErrorBoundary";
+import Layout from "./pages/public/Layout";
+import Home from "./pages/public/Home";
+import Login from "./pages/public/Login";
+import Signup from "./pages/public/Signup";
+import Pricing from "./pages/public/Pricing";
 import { default as UserLayout } from "./pages/users/Layout";
+import { signupAction, loginAction } from "./pages/public/actions";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Layout />,
-    errorElement: <p>Not Found</p>,
+    errorElement: <ErrorBoundary />,
     children: [
       {
         index: true,
         element: <Home />,
       },
       {
-        path: "/login",
+        path: "challenges",
+        element: <p>Challenges</p>,
+      },
+      {
+        path: "pricing",
+        element: <Pricing />,
+      },
+      {
+        path: "login",
         action: loginAction,
         element: <Login />,
       },
       {
-        path: "/signup",
+        path: "signup",
         action: signupAction,
         element: <Signup />,
       },
