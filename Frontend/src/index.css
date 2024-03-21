@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
+<<<<<<< HEAD
 @layer components {
   .btn {
     @apply px-2 py-1 border border-neutral-950 rounded-lg hover:cursor-pointer;
@@ -19,3 +20,13 @@
     @apply bg-neutral-300 text-neutral-950;
   }
 }
+=======
+
+@layer components {
+
+
+  .btn-dark {
+    @apply  bg-[#000] rounded-md px-4 py-2 m-0 text-xs text-white hover:shadow-lg hover:inset-2 transition-all duration-100 ease-in-out;
+  }
+}
+>>>>>>> 9715a9c726f8fe4a8ab3c8e061638f43bc5665ff
